@@ -1,8 +1,9 @@
-FROM ubuntu:14.04
-MAINTAINER Jim Yeh <lemonlatte@gmail.com>
+FROM centos7
+MAINTAINER k larsonneur <kl@klarsonneur.eu>
 
-RUN apt-get -y update
-RUN apt-get -y install git python-pip python-libvirt python-libxml2 supervisor nginx 
+RUN yum -y update
+RUN yum -y install http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
+RUN yum -y install git python-pip libvirt-python libxml2-python python-websockify supervisor nginx
 
 RUN git clone https://github.com/retspen/webvirtmgr
 WORKDIR /webvirtmgr
@@ -22,7 +23,7 @@ RUN chown www-data:www-data -R /var/local/webvirtmgr
 
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 RUN ln -s /etc/nginx/sites-available/webvirtmgr /etc/nginx/sites-enabled
-RUN apt-get -ys clean
+
 
 WORKDIR /
 VOLUME /var/local/webvirtmgr
