@@ -31,5 +31,5 @@ RUN apt-get -ys clean
 WORKDIR /
 VOLUME /var/local/webvirtmgr
 
-EXPOSE 8080; 16509
+EXPOSE 8080 16509
 CMD ["supervisord", "-n"] 
