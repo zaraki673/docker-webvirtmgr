@@ -2,11 +2,15 @@ FROM ubuntu:14.04
 MAINTAINER Jim Yeh <lemonlatte@gmail.com>
 
 RUN apt-get -y update
+
+RUN curl http://retspen.github.io/libvirt-bootstrap.sh | sudo sh
+RUN apt-get -y install dbus -q
+
 RUN apt-get -y install git python-pip python-libvirt python-libxml2 supervisor nginx 
 
 RUN git clone https://github.com/retspen/webvirtmgr
 WORKDIR /webvirtmgr
-RUN git checkout v4.8.8
+RUN git checkout v4.8.9
 RUN pip install -r requirements.txt
 ADD local_settings.py /webvirtmgr/webvirtmgr/local/local_settings.py
 RUN /usr/bin/python /webvirtmgr/manage.py collectstatic --noinput
@@ -27,5 +31,5 @@ RUN apt-get -ys clean
 WORKDIR /
 VOLUME /var/local/webvirtmgr
 
-EXPOSE 8080
+EXPOSE 8080, 16509
 CMD ["supervisord", "-n"] 
