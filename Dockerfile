@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-MAINTAINER Jim Yeh <lemonlatte@gmail.com>
+MAINTAINER K Larsonneur <klarsonneur@gmail.com>
 
 RUN apt-get -y update
 
