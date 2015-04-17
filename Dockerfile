@@ -19,6 +19,8 @@ ADD supervisor.webvirtmgr.conf /etc/supervisor/conf.d/webvirtmgr.conf
 ADD nginx.webvirtmgr.conf /etc/nginx/sites-available/webvirtmgr
 
 ADD bootstrap.sh /webvirtmgr/bootstrap.sh
+RUN chmod +x /webvirtmgr/bootstrap.sh
+RUN /webvirtmgr/bootstrap.sh
 
 RUN mkdir /var/local/webvirtmgr
 RUN chown www-data:www-data -R /webvirtmgr
