@@ -10,7 +10,7 @@ RUN apt-get -y install git python-pip python-libvirt python-libxml2 supervisor n
 
 RUN git clone https://github.com/retspen/webvirtmgr
 WORKDIR /webvirtmgr
-RUN git checkout v4.8.9
+RUN git checkout v4.8.8
 RUN pip install -r requirements.txt
 ADD local_settings.py /webvirtmgr/webvirtmgr/local/local_settings.py
 RUN /usr/bin/python /webvirtmgr/manage.py collectstatic --noinput
