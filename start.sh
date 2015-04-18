@@ -1,4 +1,4 @@
-#/bin/sh
+#!/bin/sh
 
 if [ -f /.libvirt_admin_created ]; then
     echo "libvirt 'webvirtmgr' user already created!"
