@@ -6,7 +6,7 @@ RUN apt-get -y update
 RUN curl http://retspen.github.io/libvirt-bootstrap.sh | sudo sh
 RUN apt-get -y install dbus -q
 
-RUN apt-get -y pwgen sasl2-bin -q
+RUN apt-get -y install pwgen sasl2-bin -q
 
 RUN apt-get -y install git python-pip python-libvirt python-libxml2 supervisor nginx 
 
